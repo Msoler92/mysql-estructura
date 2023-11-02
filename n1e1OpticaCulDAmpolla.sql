@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS n1e1Optica;
-CREATE DATABASE n1e1Optica CHARACTER SET utf8mb4;
-USE n1e1Optica;
+DROP DATABASE IF EXISTS n1e1optica;
+CREATE DATABASE n1e1optica CHARACTER SET utf8mb4;
+USE n1e1optica;
 
 CREATE TABLE proveidors (
 id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -15,7 +15,6 @@ CREATE TABLE marques (
 id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nom VARCHAR(60) NOT NULL,
 proveidor_id INT UNSIGNED NOT NULL,
-PRIMARY KEY (id),
 FOREIGN KEY (proveidor_id) REFERENCES proveidors(id)
 );
 
@@ -34,6 +33,7 @@ FOREIGN KEY (marca_id) REFERENCES marques(id)
 
 CREATE TABLE clients (
 id INT UNSIGNED NOT NULL PRIMARY KEY,
+nom VARCHAR(60),
 adreca_postal VARCHAR(45),
 telefon BIGINT,
 email VARCHAR(60),
@@ -71,12 +71,12 @@ INSERT INTO ulleres VALUES (8, 0.25, 0.5, 'metàl·lica','Gris', NULL, NULL, 24.
 INSERT INTO ulleres VALUES (9, 0.25, 2.25, 'pasta','Verd', 'Negre', 'Negre', 29.99, 1);
 INSERT INTO ulleres VALUES (10, 3.5, 3.5, 'flotant','Vermell', NULL, NULL, 14.99, 2);
 
-INSERT INTO clients VALUES (1, 'C/ Matadegolla 23', 938448739, 'joanjosep@laseva.org', '1987-12-05', NULL);
-INSERT INTO clients VALUES (2, 'C/ Roc Boronat 10', 938874626, NULL, '1987-12-05', NULL);
-INSERT INTO clients VALUES (3, 'C/ Cinc de Maig, S/N', NULL, NULL, '1988-11-28', NULL);
-INSERT INTO clients VALUES (4, 'C/ Bonavista 1', 938448739, 'pepa21@laseva.org', NULL, NULL);
-INSERT INTO clients VALUES (5, 'C/ Malavista 12', 938448739, 'rambling2@laseva.org', '1999-01-03', 1);
-INSERT INTO clients VALUES (6, 'C/ Matadegolla 165', NULL, 'jalarcon@laseva.org', '2001-03-22', 3);
+INSERT INTO clients VALUES (1, 'Joan Josep', 'C/ Matadegolla 23', 938448739, 'joanjosep@laseva.org', '1987-12-05', NULL);
+INSERT INTO clients VALUES (2, 'Ana Capmany', 'C/ Roc Boronat 10', 938874626, NULL, '1987-12-05', NULL);
+INSERT INTO clients VALUES (3, 'Jordi Latorre', 'C/ Cinc de Maig, S/N', NULL, NULL, '1988-11-28', NULL);
+INSERT INTO clients VALUES (4, 'Pepa Garcia', 'C/ Bonavista 1', 938448739, 'pepa21@laseva.org', NULL, NULL);
+INSERT INTO clients VALUES (5, 'Xavier Cirera', 'C/ Malavista 12', 938448739, 'rambling2@laseva.org', '1999-01-03', 1);
+INSERT INTO clients VALUES (6, 'Jana Alarcon', 'C/ Matadegolla 165', NULL, 'jalarcon@laseva.org', '2001-03-22', 3);
 
 INSERT INTO vendes VALUES ('Joana Alarcon', 1, 1);
 INSERT INTO vendes VALUES ('Pere Llamantol', 2, 2);
